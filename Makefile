@@ -138,6 +138,30 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/spacebot.o: src/spacebot.cpp.o
+.PHONY : src/spacebot.o
+
+# target to build an object file
+src/spacebot.cpp.o:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/spacebot.cpp.o
+.PHONY : src/spacebot.cpp.o
+
+src/spacebot.i: src/spacebot.cpp.i
+.PHONY : src/spacebot.i
+
+# target to preprocess a source file
+src/spacebot.cpp.i:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/spacebot.cpp.i
+.PHONY : src/spacebot.cpp.i
+
+src/spacebot.s: src/spacebot.cpp.s
+.PHONY : src/spacebot.s
+
+# target to generate assembly for a file
+src/spacebot.cpp.s:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/spacebot.cpp.s
+.PHONY : src/spacebot.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -150,6 +174,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/spacebot.o"
+	@echo "... src/spacebot.i"
+	@echo "... src/spacebot.s"
 .PHONY : help
 
 

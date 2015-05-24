@@ -1,7 +1,18 @@
 #include <iostream>
+#include <string>
 
-int main()
+#include "spacebot.h"
+
+int main(int argc, char* argv[])
 {
-  std::cout << "Hello world" << std::endl;
-  return 0;
+    if (argc < 2) {
+	std::cout << "usage: " << argv[0] << " <output folder>" << std::endl;
+	return 1;
+    }
+
+    std::string outputFolder = argv[1];
+    Spacebot bot(outputFolder);
+    bot.writeNextMove();
+    
+    return 0;
 }
