@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <fstream>
+#include "move.h"
 
 class Spacebot {
 public:
@@ -10,4 +11,6 @@ public:
 private:
     std::ifstream mapStream;
     std::ofstream resultStream;
+    void writeMove(const Move& move);
+    Move chooseMove();
 };
