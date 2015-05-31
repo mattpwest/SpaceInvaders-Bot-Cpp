@@ -114,6 +114,54 @@ cppbot/fast:
 	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/build
 .PHONY : cppbot/fast
 
+src/alien.o: src/alien.cpp.o
+.PHONY : src/alien.o
+
+# target to build an object file
+src/alien.cpp.o:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/alien.cpp.o
+.PHONY : src/alien.cpp.o
+
+src/alien.i: src/alien.cpp.i
+.PHONY : src/alien.i
+
+# target to preprocess a source file
+src/alien.cpp.i:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/alien.cpp.i
+.PHONY : src/alien.cpp.i
+
+src/alien.s: src/alien.cpp.s
+.PHONY : src/alien.s
+
+# target to generate assembly for a file
+src/alien.cpp.s:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/alien.cpp.s
+.PHONY : src/alien.cpp.s
+
+src/enemy_bullet.o: src/enemy_bullet.cpp.o
+.PHONY : src/enemy_bullet.o
+
+# target to build an object file
+src/enemy_bullet.cpp.o:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/enemy_bullet.cpp.o
+.PHONY : src/enemy_bullet.cpp.o
+
+src/enemy_bullet.i: src/enemy_bullet.cpp.i
+.PHONY : src/enemy_bullet.i
+
+# target to preprocess a source file
+src/enemy_bullet.cpp.i:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/enemy_bullet.cpp.i
+.PHONY : src/enemy_bullet.cpp.i
+
+src/enemy_bullet.s: src/enemy_bullet.cpp.s
+.PHONY : src/enemy_bullet.s
+
+# target to generate assembly for a file
+src/enemy_bullet.cpp.s:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/enemy_bullet.cpp.s
+.PHONY : src/enemy_bullet.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -137,6 +185,54 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/player_missile.o: src/player_missile.cpp.o
+.PHONY : src/player_missile.o
+
+# target to build an object file
+src/player_missile.cpp.o:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/player_missile.cpp.o
+.PHONY : src/player_missile.cpp.o
+
+src/player_missile.i: src/player_missile.cpp.i
+.PHONY : src/player_missile.i
+
+# target to preprocess a source file
+src/player_missile.cpp.i:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/player_missile.cpp.i
+.PHONY : src/player_missile.cpp.i
+
+src/player_missile.s: src/player_missile.cpp.s
+.PHONY : src/player_missile.s
+
+# target to generate assembly for a file
+src/player_missile.cpp.s:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/player_missile.cpp.s
+.PHONY : src/player_missile.cpp.s
+
+src/shield.o: src/shield.cpp.o
+.PHONY : src/shield.o
+
+# target to build an object file
+src/shield.cpp.o:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/shield.cpp.o
+.PHONY : src/shield.cpp.o
+
+src/shield.i: src/shield.cpp.i
+.PHONY : src/shield.i
+
+# target to preprocess a source file
+src/shield.cpp.i:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/shield.cpp.i
+.PHONY : src/shield.cpp.i
+
+src/shield.s: src/shield.cpp.s
+.PHONY : src/shield.s
+
+# target to generate assembly for a file
+src/shield.cpp.s:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/shield.cpp.s
+.PHONY : src/shield.cpp.s
 
 src/spacebot.o: src/spacebot.cpp.o
 .PHONY : src/spacebot.o
@@ -162,6 +258,30 @@ src/spacebot.cpp.s:
 	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/spacebot.cpp.s
 .PHONY : src/spacebot.cpp.s
 
+src/spaceship.o: src/spaceship.cpp.o
+.PHONY : src/spaceship.o
+
+# target to build an object file
+src/spaceship.cpp.o:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/spaceship.cpp.o
+.PHONY : src/spaceship.cpp.o
+
+src/spaceship.i: src/spaceship.cpp.i
+.PHONY : src/spaceship.i
+
+# target to preprocess a source file
+src/spaceship.cpp.i:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/spaceship.cpp.i
+.PHONY : src/spaceship.cpp.i
+
+src/spaceship.s: src/spaceship.cpp.s
+.PHONY : src/spaceship.s
+
+# target to generate assembly for a file
+src/spaceship.cpp.s:
+	$(MAKE) -f CMakeFiles/cppbot.dir/build.make CMakeFiles/cppbot.dir/src/spaceship.cpp.s
+.PHONY : src/spaceship.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -171,12 +291,27 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cppbot"
+	@echo "... src/alien.o"
+	@echo "... src/alien.i"
+	@echo "... src/alien.s"
+	@echo "... src/enemy_bullet.o"
+	@echo "... src/enemy_bullet.i"
+	@echo "... src/enemy_bullet.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/player_missile.o"
+	@echo "... src/player_missile.i"
+	@echo "... src/player_missile.s"
+	@echo "... src/shield.o"
+	@echo "... src/shield.i"
+	@echo "... src/shield.s"
 	@echo "... src/spacebot.o"
 	@echo "... src/spacebot.i"
 	@echo "... src/spacebot.s"
+	@echo "... src/spaceship.o"
+	@echo "... src/spaceship.i"
+	@echo "... src/spaceship.s"
 .PHONY : help
 
 
