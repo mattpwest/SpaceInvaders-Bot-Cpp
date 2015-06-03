@@ -1,1 +1,1 @@
-.\Spacebot\Debug\Spacebot.exe %1
+.\Debug\Spacebot.exe %1

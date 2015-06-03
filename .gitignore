@@ -6,3 +6,4 @@ output/
 cppbot
 *.sdf
 *.suo
+Debug/
