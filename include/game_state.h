@@ -6,12 +6,12 @@
 #include "shield.h"
 #include "spaceship.h"
 #include <vector>
-#include <iostream>
+#include <string>
 
 class GameState
 {
 public:
-    GameState(std::istream& mapFile);
+    GameState(std::string mapFilename);
 private:
     std::vector<Alien> aliens;
     std::vector<EnemyBullet> bullets;

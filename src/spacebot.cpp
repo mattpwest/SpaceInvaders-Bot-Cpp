@@ -4,8 +4,8 @@
 #include <string>
 
 Spacebot::Spacebot(std::string outputPath)
-    : outputPath(std::move(outputPath)),
-      gameState(std::ifstream(outputPath+"/map.txt"))
+    : outputFilename(outputPath+"/move.txt"),
+      gameState(outputPath+"/map.txt")
 {
 }
 
@@ -27,7 +27,7 @@ Move Spacebot::chooseMove()
 
 void Spacebot::writeMove(const Move& move)
 {
-    std::ofstream resultStream(outputPath+"/move.txt");
+    std::ofstream resultStream(outputFilename);
     switch (move)
     {
     case Move::NOTHING:

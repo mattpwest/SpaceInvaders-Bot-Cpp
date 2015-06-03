@@ -9,7 +9,7 @@ public:
     Spacebot(std::string outputPath);
     void writeNextMove();
 private:
-    std::string outputPath;
+    std::string outputFilename;
     GameState gameState;
     void writeMove(const Move& move);
     Move chooseMove();
