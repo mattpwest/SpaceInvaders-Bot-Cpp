@@ -10,8 +10,7 @@ int main(int argc, char* argv[])
 	return 1;
     }
 
-    std::string outputFolder = argv[1];
-    Spacebot bot(std::move(outputFolder));
+    Spacebot bot(argv[1]);
     bot.writeNextMove();
     
     return 0;
