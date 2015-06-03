@@ -1,5 +1,6 @@
 #include "spacebot.h"
 #include <random>
+#include <string>
 
 Spacebot::Spacebot(const std::string& outputPath)
   : mapStream(outputPath+"/map.txt", std::ifstream::in)
