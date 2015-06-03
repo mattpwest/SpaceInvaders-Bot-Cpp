@@ -1,6 +1,7 @@
 #include "spacebot.h"
 #include <random>
 #include <fstream>
+#include <string>
 
 Spacebot::Spacebot(std::string outputPath)
     : outputPath(std::move(outputPath)),
