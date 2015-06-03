@@ -7,3 +7,4 @@ cppbot
 *.sdf
 *.suo
 Debug/
+Makefile

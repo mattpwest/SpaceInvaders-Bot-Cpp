@@ -11,7 +11,7 @@
 class GameState
 {
 public:
-    GameState(const std::istream& mapFile){}
+    GameState(std::istream& mapFile);
 private:
     std::vector<Alien> aliens;
     std::vector<EnemyBullet> bullets;

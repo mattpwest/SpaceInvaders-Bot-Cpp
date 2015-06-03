@@ -5,7 +5,7 @@
 
 Spacebot::Spacebot(std::string outputPath)
     : outputPath(std::move(outputPath)),
-      gameState(std::ifstream(outputPath+"/map.txt", std::ifstream::in))
+      gameState(std::ifstream(outputPath+"/map.txt"))
 {
 }
 
