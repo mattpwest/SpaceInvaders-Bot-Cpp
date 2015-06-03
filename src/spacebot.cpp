@@ -1,11 +1,11 @@
 #include "spacebot.h"
 #include <random>
+#include <fstream>
 
-Spacebot::Spacebot(const std::string& outputPath)
-  : mapStream(outputPath+"/map.txt", std::ifstream::in)
-  , resultStream(outputPath+"/move.txt", std::ofstream::out)
+Spacebot::Spacebot(std::string outputPath)
+    : outputPath(std::move(outputPath)),
+      gameState(std::ifstream(outputPath+"/map.txt", std::ifstream::in))
 {
-  std::srand(time(0));
 }
 
 void Spacebot::writeNextMove()
@@ -26,6 +26,7 @@ Move Spacebot::chooseMove()
 
 void Spacebot::writeMove(const Move& move)
 {
+    std::ofstream resultStream(outputPath+"/move.txt");
     switch (move)
     {
     case Move::NOTHING:

@@ -1,16 +1,16 @@
 #pragma once
 
-#include <iostream>
-#include <fstream>
+#include <string>
 #include "move.h"
+#include "game_state.h"
 
 class Spacebot {
 public:
-    Spacebot(const std::string& outputPath);
+    Spacebot(std::string outputPath);
     void writeNextMove();
 private:
-    std::ifstream mapStream;
-    std::ofstream resultStream;
+    std::string outputPath;
+    GameState gameState;
     void writeMove(const Move& move);
     Move chooseMove();
 };

@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
     }
 
     std::string outputFolder = argv[1];
-    Spacebot bot(outputFolder);
+    Spacebot bot(std::move(outputFolder));
     bot.writeNextMove();
     
     return 0;
