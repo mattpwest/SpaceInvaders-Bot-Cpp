@@ -1,7 +1,7 @@
-#ifndef MOVE_H
-#define MOVE_H
+#pragma once
 
-enum class Move: int {
+enum class Move: int
+{
     NOTHING = 0,
     MOVE_LEFT = 1,
     MOVE_RIGHT = 2,
@@ -10,5 +10,3 @@ enum class Move: int {
     BUILD_MISSILE_CONTROLLER = 5,
     BUILD_SHIELD = 6
 };
-
-#endif

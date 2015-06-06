@@ -19,37 +19,37 @@ GameState::GameState(std::string mapFilename)
     for (int x=-1; y <= GAME_AREA_LINES; ++x)
     {
         char nextChar = mapFile.get();
-	if (nextChar == EOF)
-	{
-	    break;
-	}
+        if (nextChar == EOF)
+        {
+            break;
+        }
 
-	switch (nextChar)
-	{
-	case Alien::MAP_CHAR:
-	    aliens.push_back(Alien(x,y));
-	    break;
-	case EnemyBullet::ALIEN_MAP_CHAR:
-	case EnemyBullet::ENEMY_MISSILE_MAP_CHAR:
-	    bullets.push_back(EnemyBullet(x,y));
-	    break;
-	case PlayerMissile::MAP_CHAR:
-	    missiles.push_back(PlayerMissile(x,y));
-	    break;
-	case Shield::MAP_CHAR:
-	    shields.push_back(Shield(x,y));
-	    break;
-	case Spaceship::ENEMY_MAP_CHAR:
-	case Spaceship::PLAYER_MAP_CHAR:
-	    spaceships.push_back(Spaceship(x+1,y));
-	    x += 2;
-	    mapFile.ignore(2);
-	    break;
-	case '\n':
-	    ++y;
-	    x = -1;
-	    break;
-	}
+        switch (nextChar)
+        {
+        case Alien::MAP_CHAR:
+            aliens.push_back(Alien(x,y));
+            break;
+        case EnemyBullet::ALIEN_MAP_CHAR:
+        case EnemyBullet::ENEMY_MISSILE_MAP_CHAR:
+            bullets.push_back(EnemyBullet(x,y));
+            break;
+        case PlayerMissile::MAP_CHAR:
+            missiles.push_back(PlayerMissile(x,y));
+            break;
+        case Shield::MAP_CHAR:
+            shields.push_back(Shield(x,y));
+            break;
+        case Spaceship::ENEMY_MAP_CHAR:
+        case Spaceship::PLAYER_MAP_CHAR:
+            spaceships.push_back(Spaceship(x+1,y));
+            x += 2;
+            mapFile.ignore(2);
+            break;
+        case '\n':
+            ++y;
+            x = -1;
+            break;
+        }
     }
 }
 
@@ -57,22 +57,22 @@ void GameState::logState()
 {
     for (auto alien : aliens)
     {
-	std::cout << "Alien " << alien.coords() << std::endl;
+        std::cout << "Alien " << alien.coords() << std::endl;
     }
     for (auto bullet : bullets)
     {
-	std::cout << "Enemy Bullet" << bullet.coords() << std::endl;
+        std::cout << "Enemy Bullet" << bullet.coords() << std::endl;
     }
     for (auto missile : missiles)
     {
-	std::cout << "Player Missile" << missile.coords() << std::endl;
+        std::cout << "Player Missile" << missile.coords() << std::endl;
     }
     for (auto shield : shields)
     {
-	std::cout << "Shield" << shield.coords() << std::endl;
+        std::cout << "Shield" << shield.coords() << std::endl;
     }
     for (auto spaceship : spaceships)
     {
-	std::cout << "Spaceship" << spaceship.coords() << std::endl;
+        std::cout << "Spaceship" << spaceship.coords() << std::endl;
     }
 }
