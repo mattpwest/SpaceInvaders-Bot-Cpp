@@ -6,6 +6,24 @@
 const int OPENING_LINES = 6;
 const int GAME_AREA_LINES = 25;
 
+void moveToNextChar(int &x, int &y, int &width, char &nextChar, std::ifstream &mapFile)
+{
+    if (nextChar == '\n')
+    {
+        x = 0;
+        ++y;
+    }
+    else
+    {
+        x += width;
+    }
+    if (width > 1)
+    {
+        mapFile.ignore(width-1);
+    }
+    nextChar = mapFile.get();
+}
+
 GameState::GameState(std::string mapFilename)
 {
     std::ifstream mapFile(mapFilename);
@@ -13,44 +31,39 @@ GameState::GameState(std::string mapFilename)
     {
         mapFile.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-    
-    int y = 0;
 
-    for (int x=-1; y <= GAME_AREA_LINES; ++x)
+    char nextChar = mapFile.get();
+    for (int x=0, y=0, width=1;
+         y < GAME_AREA_LINES && nextChar != EOF;
+         moveToNextChar(x, y, width, nextChar, mapFile))
     {
-        char nextChar = mapFile.get();
-        if (nextChar == EOF)
-        {
-            break;
-        }
-
-        switch (nextChar)
-        {
-        case Alien::MAP_CHAR:
-            aliens.push_back(Alien(x,y));
-            break;
-        case EnemyBullet::ALIEN_MAP_CHAR:
-        case EnemyBullet::ENEMY_MISSILE_MAP_CHAR:
-            bullets.push_back(EnemyBullet(x,y));
-            break;
-        case PlayerMissile::MAP_CHAR:
-            missiles.push_back(PlayerMissile(x,y));
-            break;
-        case Shield::MAP_CHAR:
-            shields.push_back(Shield(x,y));
-            break;
-        case Spaceship::ENEMY_MAP_CHAR:
-        case Spaceship::PLAYER_MAP_CHAR:
-            spaceships.push_back(Spaceship(x+1,y));
-            x += 2;
-            mapFile.ignore(2);
-            break;
-        case '\n':
-            ++y;
-            x = -1;
-            break;
-        }
+        width = addEntity(x, y, nextChar);
     }
+}
+
+int GameState::addEntity(int x, int y, char type)
+{
+    switch (type)
+    {
+    case Alien::MAP_CHAR:
+        aliens.push_back(Alien(x,y));
+        return 1;
+    case EnemyBullet::ALIEN_MAP_CHAR:
+    case EnemyBullet::ENEMY_MISSILE_MAP_CHAR:
+        bullets.push_back(EnemyBullet(x,y));
+        return 1;
+    case PlayerMissile::MAP_CHAR:
+        missiles.push_back(PlayerMissile(x,y));
+        return 1;
+    case Shield::MAP_CHAR:
+        shields.push_back(Shield(x,y));
+        return 1;
+    case Spaceship::ENEMY_MAP_CHAR:
+    case Spaceship::PLAYER_MAP_CHAR:
+        spaceships.push_back(Spaceship(x+1,y));
+        return 3;
+    }
+    return 1;
 }
 
 void GameState::logState()

@@ -19,4 +19,6 @@ private:
     std::vector<PlayerMissile> missiles;
     std::vector<Shield> shields;
     std::vector<Spaceship> spaceships;
+
+    int addEntity(int x, int y, char type);
 };
