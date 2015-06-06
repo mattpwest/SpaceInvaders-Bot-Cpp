@@ -41,7 +41,9 @@ GameState::GameState(std::string mapFilename)
 	    break;
 	case Spaceship::ENEMY_MAP_CHAR:
 	case Spaceship::PLAYER_MAP_CHAR:
-	    spaceships.push_back(Spaceship(x,y));
+	    spaceships.push_back(Spaceship(x+1,y));
+	    x += 2;
+	    mapFile.ignore(2);
 	    break;
 	case '\n':
 	    ++y;
@@ -55,6 +57,22 @@ void GameState::logState()
 {
     for (auto alien : aliens)
     {
-	std::cout << "Alien (" << alien.x() << ", " << alien.y() << ")" << std::endl;
+	std::cout << "Alien " << alien.coords() << std::endl;
+    }
+    for (auto bullet : bullets)
+    {
+	std::cout << "Enemy Bullet" << bullet.coords() << std::endl;
+    }
+    for (auto missile : missiles)
+    {
+	std::cout << "Player Missile" << missile.coords() << std::endl;
+    }
+    for (auto shield : shields)
+    {
+	std::cout << "Shield" << shield.coords() << std::endl;
+    }
+    for (auto spaceship : spaceships)
+    {
+	std::cout << "Spaceship" << spaceship.coords() << std::endl;
     }
 }

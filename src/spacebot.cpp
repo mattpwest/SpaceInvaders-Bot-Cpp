@@ -8,7 +8,6 @@ Spacebot::Spacebot(std::string outputPath)
     : outputFilename(outputPath+"/move.txt"),
       gameState(outputPath+"/map.txt")
 {
-    gameState.logState();
 }
 
 void Spacebot::writeNextMove()
