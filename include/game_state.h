@@ -12,6 +12,7 @@ class GameState
 {
 public:
     GameState(std::string mapFilename);
+    void logState();
 private:
     std::vector<Alien> aliens;
     std::vector<EnemyBullet> bullets;

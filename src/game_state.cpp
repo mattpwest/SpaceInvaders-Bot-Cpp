@@ -50,3 +50,11 @@ GameState::GameState(std::string mapFilename)
 	}
     }
 }
+
+void GameState::logState()
+{
+    for (auto alien : aliens)
+    {
+	std::cout << "Alien (" << alien.x() << ", " << alien.y() << ")" << std::endl;
+    }
+}
