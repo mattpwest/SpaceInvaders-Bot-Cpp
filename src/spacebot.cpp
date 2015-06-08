@@ -2,11 +2,10 @@
 #include "move_string_mapper.h"
 #include <random>
 #include <fstream>
-#include <string>
 
 Spacebot::Spacebot(std::string outputPath)
     : outputFilename(outputPath+"/move.txt"),
-      gameState(outputPath+"/map.txt")
+      gameState(std::ifstream(outputPath+"/map.txt"))
 {
 }
 

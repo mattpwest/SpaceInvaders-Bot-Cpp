@@ -6,7 +6,7 @@
 const int OPENING_LINES = 6;
 const int GAME_AREA_LINES = 25;
 
-void moveToNextChar(int &x, int &y, int &width, char &nextChar, std::ifstream &mapFile)
+void moveToNextChar(int &x, int &y, int &width, char &nextChar, std::istream &mapFile)
 {
     if (nextChar == '\n')
     {
@@ -24,9 +24,8 @@ void moveToNextChar(int &x, int &y, int &width, char &nextChar, std::ifstream &m
     nextChar = mapFile.get();
 }
 
-GameState::GameState(std::string mapFilename)
+GameState::GameState(std::istream &&mapFile)
 {
-    std::ifstream mapFile(mapFilename);
     for (int i=0; i<OPENING_LINES; ++i)
     {
         mapFile.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -46,21 +45,21 @@ int GameState::addEntity(int x, int y, char type)
     switch (type)
     {
     case Alien::MAP_CHAR:
-        aliens.push_back(Alien(x,y));
+        _aliens.push_back(Alien(x,y));
         return 1;
     case EnemyBullet::ALIEN_MAP_CHAR:
     case EnemyBullet::ENEMY_MISSILE_MAP_CHAR:
-        bullets.push_back(EnemyBullet(x,y));
+        _bullets.push_back(EnemyBullet(x,y));
         return 1;
     case PlayerMissile::MAP_CHAR:
-        missiles.push_back(PlayerMissile(x,y));
+        _missiles.push_back(PlayerMissile(x,y));
         return 1;
     case Shield::MAP_CHAR:
-        shields.push_back(Shield(x,y));
+        _shields.push_back(Shield(x,y));
         return 1;
     case Spaceship::ENEMY_MAP_CHAR:
     case Spaceship::PLAYER_MAP_CHAR:
-        spaceships.push_back(Spaceship(x+1,y));
+        _spaceships.push_back(Spaceship(x+1,y));
         return 3;
     }
     return 1;
@@ -68,23 +67,23 @@ int GameState::addEntity(int x, int y, char type)
 
 void GameState::logState()
 {
-    for (auto alien : aliens)
+    for (auto alien : _aliens)
     {
         std::cout << "Alien " << alien.coords() << std::endl;
     }
-    for (auto bullet : bullets)
+    for (auto bullet : _bullets)
     {
         std::cout << "Enemy Bullet" << bullet.coords() << std::endl;
     }
-    for (auto missile : missiles)
+    for (auto missile : _missiles)
     {
         std::cout << "Player Missile" << missile.coords() << std::endl;
     }
-    for (auto shield : shields)
+    for (auto shield : _shields)
     {
         std::cout << "Shield" << shield.coords() << std::endl;
     }
-    for (auto spaceship : spaceships)
+    for (auto spaceship : _spaceships)
     {
         std::cout << "Spaceship" << spaceship.coords() << std::endl;
     }
