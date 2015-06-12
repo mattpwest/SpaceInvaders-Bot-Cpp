@@ -16,6 +16,10 @@ public:
     void logState();
 
     const std::vector<Alien>& aliens() const { return _aliens; }
+    const std::vector<EnemyBullet>& bullets() const { return _bullets; }
+    const std::vector<PlayerMissile>& missiles() const { return _missiles; }
+    const std::vector<Shield>& shields() const { return _shields; }
+    const std::vector<Spaceship>& spaceships() const { return _spaceships; }
     
 private:
     std::vector<Alien> _aliens;
