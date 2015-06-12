@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/bin/sh
 
 ./cppbot $1
