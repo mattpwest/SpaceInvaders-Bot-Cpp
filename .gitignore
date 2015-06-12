@@ -3,8 +3,7 @@ CMakeFiles
 *.cmake
 install_manifest.txt
 output/
-cppbot
-cppbot_test
+bin/
 *.sdf
 *.suo
 Debug/

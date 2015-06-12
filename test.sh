@@ -1,3 +1,3 @@
 #!/bin/sh
 
-make && valgrind ./cppbot_test
+make && valgrind ./bin/spacebot_test

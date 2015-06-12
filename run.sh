@@ -1,3 +1,3 @@
 #!/bin/sh
 
-./cppbot $1
+./bin/spacebot $1
